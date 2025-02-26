@@ -104,7 +104,7 @@ function App() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-[url(/src/assets/image.jpeg)] bg-contain flex flex-col items-center py-12 px-4">
+    <div className="min-h-screen bg-[url(/src/assets/image.jpeg)] bg-cover bg-no-repeat flex flex-col items-center px-12 py-8">
       <div className="w-full max-w-4xl bg-black/30 backdrop-blur-lg rounded-xl p-8 shadow-2xl">
         <h1 className="text-4xl font-bold text-center text-white mb-8">
           Music Visualizer <i class="ri-music-line"></i>
