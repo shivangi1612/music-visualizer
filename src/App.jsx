@@ -104,7 +104,7 @@ function App() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-amber-700 via-orange-300 to-rose-800 flex flex-col items-center py-12 px-4">
+    <div className="min-h-screen bg-[url(/src/assets/image.jpeg)] bg-contain flex flex-col items-center py-12 px-4">
       <div className="w-full max-w-4xl bg-black/30 backdrop-blur-lg rounded-xl p-8 shadow-2xl">
         <h1 className="text-4xl font-bold text-center text-white mb-8">
           Music Visualizer <i class="ri-music-line"></i>
@@ -115,8 +115,8 @@ function App() {
         </div>
 
         <div className="flex items-center justify-center gap-4">
-          <label className="bg-orange-900 text-orange-400 border border-orange-400 border-b-4 font-medium overflow-hidden relative px-4 py-2 rounded-md hover:brightness-150 hover:border-t-4 hover:border-b active:opacity-75 outline-none duration-300 group">
-          <span class="bg-orange-400 shadow-orange-400 absolute -top-[150%] left-0 inline-flex w-80 h-[5px] rounded-md opacity-50 group-hover:top-[150%] duration-500 shadow-[0_0_10px_10px_rgba(0,0,0,0.3)]"></span>
+          <label className="bg-sky-950 text-sky-400 border border-sky-400 border-b-4 font-medium overflow-hidden relative px-4 py-2 rounded-md hover:brightness-150 hover:border-t-4 hover:border-b active:opacity-75 outline-none duration-300 group">
+          <span class="bg-sky-400 shadow-sky-400 absolute -top-[150%] left-0 inline-flex w-80 h-[5px] rounded-md opacity-50 group-hover:top-[150%] duration-500 shadow-[0_0_10px_10px_rgba(0,0,0,0.3)]"></span>
             <input
               type="file"
               accept="audio/*"
@@ -131,7 +131,7 @@ function App() {
             disabled={!audioFile}
             className={`w-12 h-12 flex items-center justify-center rounded-full transition-colors ${
               audioFile
-                ? 'bg-red-600 hover:bg-red-800'
+                ? 'bg-sky-600 hover:bg-sky-800'
                 : 'bg-gray-600 cursor-not-allowed'
             }`}
           >
