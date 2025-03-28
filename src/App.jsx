@@ -12,7 +12,6 @@ function App() {
   const animationFrameRef = useRef(null);
 
   useEffect(() => {
-    // Initialize Audio Context
     audioContextRef.current = new (window.AudioContext || window.webkitAudioContext)();
     analyserRef.current = audioContextRef.current.createAnalyser();
     analyserRef.current.fftSize = 256;
@@ -60,7 +59,6 @@ function App() {
       } else {
         audioRef.current.play();
         
-        // Connect audio nodes if not already connected
         if (!audioRef.current.connected) {
           const source = audioContextRef.current.createMediaElementSource(audioRef.current);
           source.connect(analyserRef.current);
@@ -68,7 +66,6 @@ function App() {
           audioRef.current.connected = true;
         }
         
-        // Start the visualization loop
         const updateData = () => {
           const dataArray = new Uint8Array(analyserRef.current.frequencyBinCount);
           analyserRef.current.getByteFrequencyData(dataArray);
@@ -104,19 +101,19 @@ function App() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-[url(/src/assets/image.jpeg)] bg-auto md:bg-cover bg-no-repeat flex flex-col items-center px-12 py-8">
-      <div className="w-full max-w-4xl bg-black/30 backdrop-blur-lg rounded-xl p-8 shadow-2xl">
-        <h1 className="text-4xl font-bold text-center text-white mb-8">
-          Music Visualizer <i class="ri-music-line"></i>
+    <div className="min-h-screen flex flex-col justify-center items-center bg-[url(/src/assets/image.jpeg)] bg-cover bg-no-repeat px-6 md:px-12 py-8">
+      <div className="w-full max-w-4xl bg-black/30 backdrop-blur-lg rounded-xl p-6 md:p-8 shadow-2xl">
+        <h1 className="text-3xl md:text-4xl font-bold text-center text-white mb-6 md:mb-8">
+          Music Visualizer
         </h1>
 
-        <div className="h-[400px] mb-8 rounded-lg overflow-hidden bg-black/20">
+        <div className="h-[300px] md:h-[400px] mb-6 md:mb-8 rounded-lg overflow-hidden bg-black/20">
           <AudioVisualizer audioData={audioData} isPlaying={isPlaying} />
         </div>
 
-        <div className="flex items-center justify-center gap-4">
+        <div className="flex flex-col md:flex-row items-center justify-center gap-4">
           <label className="bg-sky-950 text-sky-400 border border-sky-400 border-b-4 font-medium overflow-hidden relative px-4 py-2 rounded-md hover:brightness-150 hover:border-t-4 hover:border-b active:opacity-75 outline-none duration-300 group">
-          <span class="bg-sky-400 shadow-sky-400 absolute -top-[150%] left-0 inline-flex w-80 h-[5px] rounded-md opacity-50 group-hover:top-[150%] duration-500 shadow-[0_0_10px_10px_rgba(0,0,0,0.3)]"></span>
+            <span className="bg-sky-400 shadow-sky-400 absolute -top-[150%] left-0 inline-flex w-80 h-[5px] rounded-md opacity-50 group-hover:top-[150%] duration-500 shadow-[0_0_10px_10px_rgba(0,0,0,0.3)]"></span>
             <input
               type="file"
               accept="audio/*"
